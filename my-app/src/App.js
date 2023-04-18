@@ -5,10 +5,10 @@ import { decrement, increment, incrementByAmount } from './redux/counter';
 
 function App() {
 
-  const {count} = useSelector((state) => state.counter)
-  // const count = useSelector(state => state.counter.count)      //redux state => counter reducer => count variable inside counter reducer
+  const count = useSelector((state) => state.counter.count)       //From state reducer we select the counter(reducer from store.js), from counter we select the count variable(from counter.js function)
+  // const count2 = useSelector(state => state.counter2.count2)
   
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() //ye already present hota h redux m
   
   return (
     <div className="App">
