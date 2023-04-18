@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React from 'react';
 import './App.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment, incrementByAmount } from './redux/counter';
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  // const {count} = useSelector(state => state.counter)
-  const count = useSelector(state => state.counter.count)
-  function increment(){
-    setCounter(counter+1)
-  }
-  function decrement(){
-    setCounter(counter-1)
-  }
+
+  const {count} = useSelector((state) => state.counter)
+  // const count = useSelector(state => state.counter.count)      //redux state => counter reducer => count variable inside counter reducer
+  
+  const dispatch = useDispatch()
+  
   return (
     <div className="App">
-      <div>The value of counter is {counter}</div>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <div>The value of counter is {count}</div>
+      <button onClick={()=>dispatch(increment())}>Increment</button>
+      <button onClick={()=>dispatch(decrement())}>Decrement</button>
+      <button onClick={()=>dispatch(incrementByAmount(33))}>Increment by 33</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 export const counterSlice = createSlice({
-  name: 'counter',         //This is a name to distinguis & id different bw different slices & stores, This will be exported as counterReducer
+  name: 'count',         //This is a name to distinguis & id different bw different slices & stores, This will be exported as counterReducer
   initialState:{
   count: 0,                 // This contains initial state with initial values
 },
